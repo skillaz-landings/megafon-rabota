@@ -139,6 +139,9 @@
                     <span>твоих </span>руках!
                     <br>Выбирай своё.
                 </div>
+                <div class="pick-yours__title">
+                    Шаг 1: <span>Выбери свой город</span>
+                </div>
                 <div class="pick-yours__select city-select">
                     <select class="city-select__select" id="citySelect">
                         <option selected disabled value="">Выберите город</option>
@@ -159,6 +162,11 @@
                 </div>
             </div>
         </div>
+
+        <div class="pick-yours__title" id="step2">
+            Шаг 2: <span>Выбери вакансию, подходящую тебе</span>
+        </div>
+
         <div class="pick-yours__cards" id="vacancyCards">
 
         </div>
@@ -181,7 +189,8 @@
                 клиентам.
             </div>
             <a class="pick-text__button button button_green" target="_blank"
-               href="https://interview.stage.skillaz.co/?vacancyId=5aa69852bdfa9500019b33ee">Оставить заявку</a>
+               id="salesVacancyBtn"
+               href="https://interview.skillaz.co">Оставить заявку</a>
         </div>
         <div class="pick-yours__text pick-text" data-id="1" id="specialist2">
             <div class="pick-text__title">Специалист по продажам в федеральном телемаркетинге</div>
@@ -205,7 +214,8 @@
                 команде. Присоединяйся!
             </div>
             <a class="pick-text__button button button_green" target="_blank"
-               href="https://interview.stage.skillaz.co/?vacancyId=5aa69852bdfa9500019b33ee">Оставить заявку</a>
+               id="marketingVacancyBtn"
+               href="https://interview.skillaz.co">Оставить заявку</a>
         </div>
         <div class="pick-yours__text pick-text" data-id="2" id="specialist3">
             <div class="pick-text__title">Специалист по обслуживанию корпоративных клиентов</div>
@@ -226,7 +236,8 @@
                 вакансия для тебя!
             </div>
             <a class="pick-text__button button button_green" target="_blank"
-               href="https://interview.stage.skillaz.co/?vacancyId=5aa69852bdfa9500019b33ee">Оставить заявку</a>
+               id="clientVacancyBtn"
+               href="https://interview.skillaz.co">Оставить заявку</a>
         </div>
         <div class="pick-yours__text pick-text" data-id="3" id="specialist4">
             <div class="pick-text__title">Специалист по федеральному контролю качества</div>
@@ -246,7 +257,8 @@
                 нажимай откликнуться!
             </div>
             <a class="pick-text__button button button_green" target="_blank"
-               href="https://interview.stage.skillaz.co/?vacancyId=5aa69852bdfa9500019b33ee">Оставить заявку</a>
+               id="qaVacancyBtn"
+               href="https://interview.skillaz.co">Оставить заявку</a>
         </div>
         <div class="pick-yours__text pick-text" data-id="4" id="specialist5">
             <div class="pick-text__title">Специалист по работе с претензиями</div>
@@ -271,7 +283,8 @@
                 мобильной связи, любишь решать нестандартные задачи – тебе к нам!
             </div>
             <a class="pick-text__button button button_green" target="_blank"
-               href="https://interview.stage.skillaz.co/?vacancyId=5aa69852bdfa9500019b33ee">Оставить заявку</a>
+               id="complaintsVacancyBtn"
+               href="https://interview.skillaz.co">Оставить заявку</a>
         </div>
         <div class="pick-yours__text pick-text" data-id="5" id="specialist6">
             <div class="pick-text__title">Специалист по обслуживанию в контактном центре</div>
@@ -297,7 +310,8 @@
                 отличное место открытых возможностей для профессионалов.
             </div>
             <a class="pick-text__button button button_green" target="_blank"
-               href="https://interview.stage.skillaz.co/?vacancyId=5aa69852bdfa9500019b33ee">Оставить заявку</a>
+               id="callCentreVacancyBtn"
+               href="https://interview.skillaz.co">Оставить заявку</a>
         </div>
     </div>
 </div>
@@ -384,63 +398,90 @@
 
   function changeContent() {
     var cards = document.getElementById("vacancyCards");
+    var callCentreBtn = document.getElementById("callCentreVacancyBtn");
+    var marketingBtn = document.getElementById("marketingVacancyBtn");
+    var salesBtn = document.getElementById("salesVacancyBtn");
+    var qaBtn = document.getElementById("qaVacancyBtn");
+    var clientBtn = document.getElementById("clientVacancyBtn");
+    var complaintsBtn = document.getElementById("complaintsVacancyBtn");
+
+    var link = "https://interview.skillaz.co/?vacancyId=";
     switch (selectedCity) {
       case "rostov":
         cards.innerHTML = callCentreVacancy + marketingVacancy;
+        callCentreBtn.setAttribute("href", link + "5a69b9b4e937850001844e1d");
+        marketingBtn.setAttribute("href", link + "5a69ba1ce937850001844e1f");
         break;
       case "ekater":
         cards.innerHTML = callCentreVacancy;
+        callCentreBtn.setAttribute("href", link + "5a71d33a1d148c000131abc0");
         break;
       case "chita":
         cards.innerHTML = callCentreVacancy;
+        callCentreBtn.setAttribute("href", link + "5a71d0e61d148c0001318a86");
         break;
       case "ivanovo":
         cards.innerHTML = callCentreVacancy + salesVacancy;
+        callCentreBtn.setAttribute("href", link + "5a69b93ce937850001844e04");
+        salesBtn.setAttribute("href", link + "5a69b8ece937850001844ca4");
         break;
       case "novsib":
-        cards.innerHTML = callCentreVacancy + marketingVacancy + salesVacancy + qaVacancy;
+        cards.innerHTML = marketingVacancy + salesVacancy + qaVacancy;
+        marketingBtn.setAttribute("href", link + "5a6f42d3e9378500019ca1f0");
+        salesBtn.setAttribute("href", link + "5a6f428ce9378500019ca135");
+        qaBtn.setAttribute("href", link + "5a7d5641396c060001a00c0a");
         break;
       case "kemerovo":
         cards.innerHTML = callCentreVacancy;
+        callCentreBtn.setAttribute("href", link + "5a6f4312e9378500019ca35b");
         break;
       case "penza":
         cards.innerHTML = callCentreVacancy + salesVacancy;
+        callCentreBtn.setAttribute("href", link + "5a6f3f24e9378500019c7ab2");
+        salesBtn.setAttribute("href", link + "5a6f3ee2e9378500019c7ab1");
         break;
       case "kislo":
         cards.innerHTML = callCentreVacancy;
+        callCentreBtn.setAttribute("href", link + "5a6f3f59e9378500019c7ab3");
         break;
       case "vologda":
         cards.innerHTML = callCentreVacancy;
+        callCentreBtn.setAttribute("href", link + "5a69b571e937850001844743");
         break;
       case "samara":
-        cards.innerHTML = callCentreVacancy + marketingVacancy + clientVacancy;
+        cards.innerHTML = marketingVacancy + clientVacancy;
+        marketingBtn.setAttribute("href", link + "5a69b510e93785000184413c");
+        clientBtn.setAttribute("href", link + "5a69b393e93785000184243b");
         break;
       case "bryansk":
         cards.innerHTML = callCentreVacancy + clientVacancy + complaintsVacancy;
+        callCentreBtn.setAttribute("href", link + "5a69b644e9378500018447f7");
+        clientBtn.setAttribute("href", link + "5a69b6f7e937850001844a19");
+        complaintsBtn.setAttribute("href", link + "5a69b6b4e9378500018448f2");
         break;
       case "tula":
-        cards.innerHTML = callCentreVacancy + marketingVacancy;
+        cards.innerHTML = marketingVacancy;
+        marketingBtn.setAttribute("href", link + "5a69b849e937850001844a2a");
         break;
       case "novg":
-        cards.innerHTML = callCentreVacancy + clientVacancy + complaintsVacancy;
+        cards.innerHTML = callCentreVacancy + complaintsVacancy;
+        callCentreBtn.setAttribute("href", link + "biHnLPYGercEDwp53");
+        complaintsBtn.setAttribute("href", link + "9ApBCH4Cejp7g2RSv");
         break;
-      default:
-        cards.innerHTML = callCentreVacancy + marketingVacancy + salesVacancy + clientVacancy + qaVacancy +
-          complaintsVacancy;
-        break;
-
     }
   }
 
   var citySelect = document.getElementById("citySelect");
   citySelect.addEventListener("change", function (e) {
     selectedCity = e.target.value;
+    $("#step2").show();
+    $(".pick-yours__text.pick-text").hide();
     changeContent();
   });
 
   var $ = require('jquery');
   $('.pick-yours__text.pick-text').hide();
-
+  $("#step2").hide();
   function vacancyBtnClick(event) {
     const e = event || window.event;
     $(".pick-yours__text.pick-text").hide();

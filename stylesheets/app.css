@@ -822,22 +822,15 @@ table {
 
 .pick-yours {
   padding-top: 100px; }
-  .pick-yours__header {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center; }
-  .pick-yours__right {
-    display: flex;
-    flex-flow: row nowrap;
-    align-items: center;
-    justify-content: space-between;
-    flex: 1; }
+  .pick-yours__header {}
+  .pick-yours__right {}
   .pick-yours__title {
     font-size: 32px;
     color: #000000;
     line-height: 40px;
-    flex: 1; }
+    flex: 1;
+    margin-bottom: 20px;
+  }
     .pick-yours__title span {
       color: #28B93C; }
   .pick-yours__posible {
@@ -853,7 +846,9 @@ table {
 
 .city-select {
   width: 32%;
-  position: relative; }
+  position: relative;
+  margin-bottom: 20px;
+}
   .city-select__select {
     width: 100%;
     border-radius: 0;
