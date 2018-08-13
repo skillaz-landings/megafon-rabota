@@ -169,19 +169,19 @@
           <div class="pick-yours__select city-select">
             <select class="city-select__select" id="citySelect">
               <option selected disabled value="">Выберите город</option>
-              <option value="rostov">Ростов-на-Дону</option>
-              <option value="ekater">Екатеринбург</option>
-              <option value="chita">Чита</option>
-              <option value="ivanovo">Иваново</option>
-              <option value="novsib">Новосибирск</option>
-              <option value="kemerovo">Кемерово</option>
-              <option value="penza">Пенза</option>
-              <option value="kislo">Кисловодск</option>
-              <option value="vologda">Вологда</option>
-              <option value="samara">Самара</option>
               <option value="bryansk">Брянск</option>
-              <option value="tula">Тула</option>
+              <option value="vologda">Вологда</option>
+              <option value="ekater">Екатеринбург</option>
+              <option value="ivanovo">Иваново</option>
+              <option value="kemerovo">Кемерово</option>
+              <option value="kislo">Кисловодск</option>
               <option value="novg">Нижний Новгород</option>
+              <option value="novsib">Новосибирск</option>
+              <option value="penza">Пенза</option>
+              <option value="rostov">Ростов-на-Дону</option>
+              <option value="samara">Самара</option>
+              <option value="tula">Тула</option>
+              <option value="chita">Чита</option>
             </select>
           </div>
         </div>
@@ -454,7 +454,11 @@
       var clientSpecialistBtn = document.getElementById("clientSpecialistBtn");
       var partnerRetailBtn = document.getElementById("partnerRetailBtn");
 
-      var link = "https://interview.skillaz.co/?sourceId=8&vacancyId=";
+      var search = window.location.search.replace('?', '');
+      var searchParams = search.split('&');
+      var sourceIdParam = searchParams.find(function(s) { return s.includes('sourceId')});
+      var sourceId = sourceIdParam ? sourceIdParam : 'sourceId=12';
+      var link = "https://interview.skillaz.co/?" + sourceId + "&vacancyId=";
       switch (selectedCity) {
         case "rostov":
           cards.innerHTML = callCentreVacancy + marketingVacancy;
